@@ -55,7 +55,7 @@
       position: absolute;
       width: 150px;
       height: auto;
-      transform-origin: 20px 30px; /* Adjust these values to match your gun handle position */
+      transform-origin: 130px 30px; /* Moved anchor to right side */
       z-index: 2;
       transition: transform 0.1s ease;
     }
@@ -155,8 +155,8 @@
 
     document.addEventListener('mousemove', (e) => {
       const containerRect = characterContainer.getBoundingClientRect();
-      const centerX = containerRect.left + 20; // Adjust to match transform-origin X
-      const centerY = containerRect.top + 30;  // Adjust to match transform-origin Y
+      const centerX = containerRect.left + 130; // Updated to match new transform-origin X
+      const centerY = containerRect.top + 30;   // Updated to match new transform-origin Y
       
       const angle = Math.atan2(e.clientY - centerY, e.clientX - centerX) * (180 / Math.PI);
       gunArm.style.transform = `rotate(${angle}deg)`;
