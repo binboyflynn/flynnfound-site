@@ -34,6 +34,38 @@
       clip-path: inset(20px 0 0 0);
     }
 
+    .character-container {
+      position: fixed;
+      right: -100px;
+      bottom: 200px;
+      width: 300px;
+      height: 400px;
+      z-index: 10;
+      animation: slideIn 2s ease-out 1s forwards;
+    }
+
+    .character {
+      position: absolute;
+      width: 100%;
+      height: auto;
+      z-index: 1;
+    }
+
+    .gun-arm {
+      position: absolute;
+      width: 150px;
+      height: auto;
+      transform-origin: 20px 30px; /* Adjust these values to match your gun handle position */
+      z-index: 2;
+      transition: transform 0.1s ease;
+    }
+
+    @keyframes slideIn {
+      to {
+        right: 50px;
+      }
+    }
+
     .hero {
       text-align: center;
       padding: 2rem;
@@ -111,5 +143,24 @@
       <a href="mailto:flynnfoundmgmt@gmail.com">Email</a>
     </nav>
   </main>
+
+  <div class="character-container">
+    <img src="character.png" alt="character" class="character">
+    <img src="gunarm.png" alt="gun arm" class="gun-arm">
+  </div>
+
+  <script>
+    const gunArm = document.querySelector('.gun-arm');
+    const characterContainer = document.querySelector('.character-container');
+
+    document.addEventListener('mousemove', (e) => {
+      const containerRect = characterContainer.getBoundingClientRect();
+      const centerX = containerRect.left + 20; // Adjust to match transform-origin X
+      const centerY = containerRect.top + 30;  // Adjust to match transform-origin Y
+      
+      const angle = Math.atan2(e.clientY - centerY, e.clientX - centerX) * (180 / Math.PI);
+      gunArm.style.transform = `rotate(${angle}deg)`;
+    });
+  </script>
 </body>
 </html>
