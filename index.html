@@ -53,13 +53,13 @@
 
     .gun-arm {
       position: absolute;
-      width: 130px;
+      width: 150px;
       height: auto;
-      transform-origin: 130px 30px;
+      transform-origin: 80px 30px; /* Adjusted anchor point */
       z-index: 2;
       transition: transform 0.1s ease;
-      left: 150px;  /* Adjusted to align gun over character */
-      top: 40px;   /* Adjusted to align gun over character */
+      left: 130px; /* Shifted slightly to the right */
+      top: 40px;
     }
 
     @keyframes slideIn {
@@ -123,46 +123,4 @@
       padding: 12px 24px;
       border: 2px solid transparent;
       border-radius: 8px;
-      transition: all 0.2s ease;
-      display: inline-block;
-      cursor: inherit;
-    }
-
-    .links a:hover {
-      background-color: #f0f0f0;
-    }
-  </style>
-</head>
-<body>
-  <main class="hero">
-    <img src="flynnfoundlogo.png" alt="flynnfound" class="logo">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/x5OnmEHC0K8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="video"></iframe>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/-NFUfGi0ZTY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="video"></iframe>
-    <nav class="links">
-      <a href="https://open.spotify.com/artist/4VEjSabTjH69ghlvbw7xiO?si=8euDLXNqQT--HZWIefGqhA" target="_blank">Spotify</a>
-      <a href="https://www.instagram.com/flynnfound/" target="_blank">Instagram</a>
-      <a href="https://www.youtube.com/@flynnfound" target="_blank">YouTube</a>
-      <a href="mailto:flynnfoundmgmt@gmail.com">Email</a>
-    </nav>
-  </main>
-
-  <div class="character-container">
-    <img src="character.png" alt="character" class="character">
-    <img src="gunarm.png" alt="gun arm" class="gun-arm">
-  </div>
-
-  <script>
-    const gunArm = document.querySelector('.gun-arm');
-    const characterContainer = document.querySelector('.character-container');
-
-    document.addEventListener('mousemove', (e) => {
-      const containerRect = characterContainer.getBoundingClientRect();
-      const centerX = containerRect.left + 130; // Matching transform-origin X
-      const centerY = containerRect.top + 30;   // Matching transform-origin Y
-      
-      const angle = Math.atan2(e.clientY - centerY, e.clientX - centerX) * (180 / Math.PI) + 180;
-      gunArm.style.transform = `rotate(${angle}deg)`;
-    });
-  </script>
-</body>
-</html>
+      transition: all 0
