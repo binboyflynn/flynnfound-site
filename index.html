@@ -3,27 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gun Arm Aim</title>
+  <title>flynnfound</title>
   <style>
     body {
-      margin: 0;
+      font-family: Arial, sans-serif;
       background: white;
-      overflow: hidden;
+      color: black;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: url('your-cursor.png'), auto;
+      position: relative;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 200px;
+      background-image: url('grass.gif');
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-size: 100% 100%;
+      z-index: -1;
+      clip-path: inset(20px 0 0 0);
     }
 
     .character-container {
-      position: relative;
-      width: 600px;
-      height: 600px;
-      margin: 50px auto;
+      position: fixed;
+      right: -100px;
+      bottom: 200px;
+      width: 300px;
+      height: 400px;
+      z-index: 10;
+      animation: slideIn 2s ease-out 1s forwards;
     }
 
-    .character-body {
+    .character {
       position: absolute;
-      width: 300px;
+      width: 100%;
       height: auto;
-      left: 160px;
-      top: 140px;
       z-index: 1;
     }
 
@@ -31,57 +55,118 @@
       position: absolute;
       width: 150px;
       height: auto;
-      left: 236px; /* aligns shoulder horizontally */
-      top: 200px;  /* aligns shoulder vertically */
-      transform-origin: 10px 35px; /* pivot point at shoulder */
+      /* anchor point (pivot) near the shoulder */
+      transform-origin: 12px 40px;
       z-index: 2;
-      transition: transform 0.05s linear;
+      transition: transform 0.1s ease;
+      /* adjusted to align the arm’s shoulder over character’s right shoulder */
+      left: 140px;
+      top: 85px;
     }
 
-    .social-buttons {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
+    @keyframes slideIn {
+      to {
+        right: 50px;
+      }
+    }
+
+    .hero {
+      text-align: center;
+      padding: 2rem;
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      z-index: 10;
+      align-items: center;
     }
 
-    .social-buttons a {
-      display: inline-block;
-      padding: 10px 15px;
-      background: #000;
-      color: #fff;
+    .logo {
+      max-width: 400px;
+      width: 90%;
+      height: auto;
+      margin-bottom: 2rem;
+    }
+
+    .video {
+      width: 560px;
+      max-width: 90%;
+      height: 315px;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      .logo {
+        max-width: 300px;
+        width: 85%;
+      }
+      .video {
+        width: 100%;
+        height: 200px;
+      }
+      .links {
+        gap: 1.5rem;
+      }
+      .links a {
+        font-size: 0.9rem;
+      }
+    }
+
+    .links {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .links a {
+      color: black;
       text-decoration: none;
-      border-radius: 5px;
-      font-family: sans-serif;
-      font-size: 14px;
+      padding: 12px 24px;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      display: inline-block;
+      cursor: inherit;
+    }
+
+    .links a:hover {
+      background-color: #f0f0f0;
     }
   </style>
 </head>
 <body>
-  <div class="character-container">
-    <img src="character.png" class="character-body" alt="Character">
-    <img src="gun-arm.png" class="gun-arm" alt="Gun Arm">
-  </div>
+  <main class="hero">
+    <img src="flynnfoundlogo.png" alt="flynnfound" class="logo">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/x5OnmEHC0K8" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen class="video"></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/-NFUfGi0ZTY" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen class="video"></iframe>
+    <nav class="links">
+      <a href="https://open.spotify.com/artist/4VEjSabTjH69ghlvbw7xiO?si=8euDLXNqQT--HZWIefGqhA"
+         target="_blank">Spotify</a>
+      <a href="https://www.instagram.com/flynnfound/" target="_blank">Instagram</a>
+      <a href="https://www.youtube.com/@flynnfound" target="_blank">YouTube</a>
+      <a href="mailto:flynnfoundmgmt@gmail.com">Email</a>
+    </nav>
+  </main>
 
-  <div class="social-buttons">
-    <a href="https://twitter.com" target="_blank">Twitter</a>
-    <a href="https://instagram.com" target="_blank">Instagram</a>
-    <a href="https://youtube.com" target="_blank">YouTube</a>
+  <div class="character-container">
+    <img src="character.png" alt="character" class="character">
+    <img src="gunarm.png" alt="gun arm" class="gun-arm">
   </div>
 
   <script>
     const gunArm = document.querySelector('.gun-arm');
-    const characterContainer = document.querySelector('.character-container');
+    const container = document.querySelector('.character-container');
 
     document.addEventListener('mousemove', (e) => {
-      const rect = characterContainer.getBoundingClientRect();
-      const originX = rect.left + 236 + 10;  // left offset + origin X
-      const originY = rect.top + 200 + 35;   // top offset + origin Y
+      const rect = container.getBoundingClientRect();
+      const pivotX = rect.left + parseFloat(getComputedStyle(gunArm).left) +
+                     (12);  // transform-origin X
+      const pivotY = rect.top + parseFloat(getComputedStyle(gunArm).top) +
+                     (40);  // transform-origin Y
 
-      const angle = Math.atan2(e.clientY - originY, e.clientX - originX) * (180 / Math.PI);
+      const angle = Math.atan2(e.clientY - pivotY, e.clientX - pivotX) * (180 / Math.PI);
       gunArm.style.transform = `rotate(${angle}deg)`;
     });
   </script>
