@@ -158,7 +158,7 @@
       const centerX = containerRect.left + 130; // Updated to match new transform-origin X
       const centerY = containerRect.top + 30;   // Updated to match new transform-origin Y
       
-      const angle = Math.atan2(e.clientY - centerY, e.clientX - centerX) * (180 / Math.PI);
+      const angle = Math.atan2(e.clientY - centerY, e.clientX - centerX) * (180 / Math.PI) + 180;
       gunArm.style.transform = `rotate(${angle}deg)`;
     });
   </script>
