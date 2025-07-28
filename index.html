@@ -55,9 +55,11 @@
       position: absolute;
       width: 150px;
       height: auto;
-      transform-origin: 130px 30px; /* Moved anchor to right side */
+      transform-origin: 130px 30px;
       z-index: 2;
       transition: transform 0.1s ease;
+      left: 75px;  /* Adjusted to align gun over character */
+      top: 40px;   /* Adjusted to align gun over character */
     }
 
     @keyframes slideIn {
@@ -93,16 +95,16 @@
         max-width: 300px;
         width: 85%;
       }
-      
+
       .video {
         width: 100%;
         height: 200px;
       }
-      
+
       .links {
         gap: 1.5rem;
       }
-      
+
       .links a {
         font-size: 0.9rem;
       }
@@ -155,8 +157,8 @@
 
     document.addEventListener('mousemove', (e) => {
       const containerRect = characterContainer.getBoundingClientRect();
-      const centerX = containerRect.left + 130; // Updated to match new transform-origin X
-      const centerY = containerRect.top + 30;   // Updated to match new transform-origin Y
+      const centerX = containerRect.left + 130; // Matching transform-origin X
+      const centerY = containerRect.top + 30;   // Matching transform-origin Y
       
       const angle = Math.atan2(e.clientY - centerY, e.clientX - centerX) * (180 / Math.PI) + 180;
       gunArm.style.transform = `rotate(${angle}deg)`;
