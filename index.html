@@ -85,11 +85,11 @@
       position: absolute;
       width: 150px;
       height: auto;
-      /* anchor point (pivot) near the shoulder */
-      transform-origin: 12px 40px;
+      /* Anchor point at the shoulder (top right of the PNG) */
+      transform-origin: 135px 10px;
       z-index: 2;
       transition: transform 0.1s ease;
-      /* adjusted to align the arm's shoulder over character's right shoulder */
+      /* You may need to adjust these positioning values since the anchor changed */
       left: 140px;
       top: 85px;
     }
@@ -198,9 +198,9 @@
     document.addEventListener('mousemove', (e) => {
       const rect = container.getBoundingClientRect();
       const pivotX = rect.left + parseFloat(getComputedStyle(gunArm).left) +
-                     (12);  // transform-origin X
+                     (135);  // Updated to match shoulder position (top right of PNG)
       const pivotY = rect.top + parseFloat(getComputedStyle(gunArm).top) +
-                     (40);  // transform-origin Y
+                     (10);   // Updated to match shoulder position (top right of PNG)
 
       const angle = Math.atan2(e.clientY - pivotY, e.clientX - pivotX) * (180 / Math.PI);
       gunArm.style.transform = `rotate(${angle}deg)`;
