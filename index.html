@@ -64,6 +64,7 @@
       50% { transform: translateY(-50%) translateX(20px) rotate(2deg); }
     }
 
+    /* CHARACTER - COMMENTED OUT FOR PRESENTABLE VERSION
     .character-container {
       position: fixed;
       right: -100px;
@@ -93,6 +94,7 @@
       left: 140px;
       top: 85px;
     }
+    */
 
     @keyframes slideIn {
       to {
@@ -184,14 +186,17 @@
     </nav>
   </main>
 
+  <!-- CHARACTER - COMMENTED OUT FOR PRESENTABLE VERSION
   <div class="character-container">
     <img src="character.png" alt="character" class="character">
     <img src="gunarm.png" alt="gun arm" class="gun-arm">
   </div>
+  -->
 
   <img src="arrow1.png" alt="arrow" class="arrow">
 
   <script>
+    /* CHARACTER INTERACTION - COMMENTED OUT FOR PRESENTABLE VERSION
     const gunArm = document.querySelector('.gun-arm');
     const container = document.querySelector('.character-container');
 
@@ -205,6 +210,7 @@
       const angle = Math.atan2(e.clientY - pivotY, e.clientX - pivotX) * (180 / Math.PI);
       gunArm.style.transform = `rotate(${angle}deg)`;
     });
+    */
   </script>
 </body>
 </html>
