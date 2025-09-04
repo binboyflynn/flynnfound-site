@@ -64,44 +64,6 @@
       50% { transform: translateY(-50%) translateX(20px) rotate(2deg); }
     }
 
-    /* CHARACTER - COMMENTED OUT FOR PRESENTABLE VERSION
-    .character-container {
-      position: fixed;
-      right: -100px;
-      bottom: 200px;
-      width: 300px;
-      height: 400px;
-      z-index: 10;
-      animation: slideIn 2s ease-out 1s forwards;
-    }
-
-    .character {
-      position: absolute;
-      width: 100%;
-      height: auto;
-      z-index: 1;
-    }
-
-    .gun-arm {
-      position: absolute;
-      width: 150px;
-      height: auto;
-      /* Anchor point at the shoulder (top right of the PNG) */
-      transform-origin: 135px 10px;
-      z-index: 2;
-      transition: transform 0.1s ease;
-      /* You may need to adjust these positioning values since the anchor changed */
-      left: 140px;
-      top: 85px;
-    }
-    */
-
-    @keyframes slideIn {
-      to {
-        right: 50px;
-      }
-    }
-
     .hero {
       text-align: center;
       padding: 2rem;
@@ -139,13 +101,23 @@
       .links a {
         font-size: 0.9rem;
       }
+      .link-item .star {
+        width: 20px;
+        height: 20px;
+      }
     }
 
-    .links {
+    .nav-with-stars {
       display: flex;
       gap: 2rem;
       justify-content: center;
       flex-wrap: wrap;
+    }
+
+    .link-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .links a {
@@ -162,6 +134,12 @@
     .links a:hover {
       background-color: #f0f0f0;
     }
+
+    .star {
+      width: 24px;
+      height: 24px;
+      margin-top: 12px;
+    }
   </style>
 </head>
 <body>
@@ -176,41 +154,46 @@
     <iframe width="560" height="315" src="https://www.youtube.com/embed/-NFUfGi0ZTY" frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen class="video"></iframe>
-    <nav class="links">
-      <a href="https://open.spotify.com/artist/4VEjSabTjH69ghlvbw7xiO?si=8euDLXNqQT--HZWIefGqhA"
-         target="_blank">Spotify</a>
-      <a href="https://www.instagram.com/flynnfound/" target="_blank">Instagram</a>
-      <a href="https://www.youtube.com/@flynnfound" target="_blank">YouTube</a>
-      <a href="https://dashthehengestore.com/products/flinbin-bandaid-boy?_pos=1&_psq=fli&_ss=e&_v=1.0" target="_blank">Shop</a>
-      <a href="mailto:flynnfoundmgmt@gmail.com">Email</a>
+    
+    <nav class="nav-with-stars">
+      <div class="link-item">
+        <div class="links">
+          <a href="https://open.spotify.com/artist/4VEjSabTjH69ghlvbw7xiO?si=8euDLXNqQT--HZWIefGqhA"
+             target="_blank">Spotify</a>
+        </div>
+        <img src="star.png" alt="star" class="star">
+      </div>
+      
+      <div class="link-item">
+        <div class="links">
+          <a href="https://www.instagram.com/flynnfound/" target="_blank">Instagram</a>
+        </div>
+        <img src="star.png" alt="star" class="star">
+      </div>
+      
+      <div class="link-item">
+        <div class="links">
+          <a href="https://www.youtube.com/@flynnfound" target="_blank">YouTube</a>
+        </div>
+        <img src="star.png" alt="star" class="star">
+      </div>
+      
+      <div class="link-item">
+        <div class="links">
+          <a href="https://dashthehengestore.com/products/flinbin-bandaid-boy?_pos=1&_psq=fli&_ss=e&_v=1.0" target="_blank">Shop</a>
+        </div>
+        <img src="star.png" alt="star" class="star">
+      </div>
+      
+      <div class="link-item">
+        <div class="links">
+          <a href="mailto:flynnfoundmgmt@gmail.com">Email</a>
+        </div>
+        <img src="star.png" alt="star" class="star">
+      </div>
     </nav>
   </main>
 
-  <!-- CHARACTER - COMMENTED OUT FOR PRESENTABLE VERSION
-  <div class="character-container">
-    <img src="character.png" alt="character" class="character">
-    <img src="gunarm.png" alt="gun arm" class="gun-arm">
-  </div>
-  -->
-
   <img src="arrow1.png" alt="arrow" class="arrow">
-
-  <script>
-    /* CHARACTER INTERACTION - COMMENTED OUT FOR PRESENTABLE VERSION
-    const gunArm = document.querySelector('.gun-arm');
-    const container = document.querySelector('.character-container');
-
-    document.addEventListener('mousemove', (e) => {
-      const rect = container.getBoundingClientRect();
-      const pivotX = rect.left + parseFloat(getComputedStyle(gunArm).left) +
-                     (135);  // Updated to match shoulder position (top right of PNG)
-      const pivotY = rect.top + parseFloat(getComputedStyle(gunArm).top) +
-                     (10);   // Updated to match shoulder position (top right of PNG)
-
-      const angle = Math.atan2(e.clientY - pivotY, e.clientX - pivotX) * (180 / Math.PI);
-      gunArm.style.transform = `rotate(${angle}deg)`;
-    });
-    */
-  </script>
 </body>
 </html>
