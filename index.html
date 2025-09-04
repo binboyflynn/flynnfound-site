@@ -106,30 +106,22 @@
 
     .nav-with-stars {
       display: flex;
-      gap: 2rem;
+      align-items: center;
       justify-content: center;
+      gap: 1rem; /* spacing between links and stars */
       flex-wrap: wrap;
     }
 
-    .link-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .links a {
+    .nav-with-stars a {
       color: black;
       text-decoration: none;
       padding: 12px 24px;
-      border: 2px solid transparent;
       border-radius: 8px;
-      transition: all 0.2s ease;
-      display: inline-block;
-      cursor: inherit;
       background-color: #f0f0f0;
+      transition: all 0.2s ease;
     }
 
-    .links a:hover {
+    .nav-with-stars a:hover {
       background-color: black;
       color: white;
     }
@@ -137,7 +129,6 @@
     .star {
       width: 24px;
       height: 24px;
-      margin-top: 12px;
     }
   </style>
 </head>
@@ -148,51 +139,4 @@
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen class="video"></iframe>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/x5OnmEHC0K8" frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen class="video"></iframe>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/-NFUfGi0ZTY" frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen class="video"></iframe>
-    
-    <nav class="nav-with-stars">
-      <div class="link-item">
-        <div class="links">
-          <a href="https://open.spotify.com/artist/4VEjSabTjH69ghlvbw7xiO?si=8euDLXNqQT--HZWIefGqhA"
-             target="_blank">Spotify</a>
-          <img src="star.png" alt="star" class="star">
-        </div>
-      </div>
-      
-      <div class="link-item">
-        <div class="links">
-          <a href="https://www.instagram.com/flynnfound/" target="_blank">Instagram</a>
-          <img src="star.png" alt="star" class="star">
-        </div>
-      </div>
-      
-      <div class="link-item">
-        <div class="links">
-          <a href="https://www.youtube.com/@flynnfound" target="_blank">YouTube</a>
-          <img src="star.png" alt="star" class="star">
-        </div>
-      </div>
-      
-      <div class="link-item">
-        <div class="links">
-          <a href="https://dashthehengestore.com/products/flinbin-bandaid-boy?_pos=1&_psq=fli&_ss=e&_v=1.0" target="_blank">Shop</a>
-          <img src="star.png" alt="star" class="star">
-        </div>
-      </div>
-      
-      <div class="link-item">
-        <div class="links">
-          <a href="mailto:flynnfoundmgmt@gmail.com">Email</a>
-          <img src="star.png" alt="star" class="star">
-        </div>
-      </div>
-    </nav>
-  </main>
-
-  <img src="arrow1.png" alt="arrow" class="arrow">
-</body>
-</html>
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-pic
